@@ -25,6 +25,7 @@ const commentController = {
 
   // add replies
   addReply({params, body}, res) {
+    console.log(params, body)
     Comment.findOneAndUpdate(
       { _id: params.commentId }, 
       { $push: { replies: body } }, 
