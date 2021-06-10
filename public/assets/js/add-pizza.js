@@ -67,6 +67,8 @@ const handlePizzaSubmit = event => {
     })
     .catch(err => {
       console.log(err);
+      // adding PWA ability with this function from idb.js
+      saveRecord(formData);
     });
 };
 
