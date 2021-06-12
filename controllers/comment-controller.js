@@ -24,13 +24,12 @@ const commentController = {
   },
 
   // add replies
-  addReply({params, body}, res) {
-    console.log(params, body)
+  addReply({ params, body }, res) {
     Comment.findOneAndUpdate(
-      { _id: params.commentId }, 
-      { $push: { replies: body } }, 
+      { _id: params.commentId },
+      { $push: { replies: body } },
       { new: true, runValidators: true }
-      )
+    )
     .then(dbPizzaData => {
       if(!dbPizzaData) {
         res.status(404).json({ message: 'No pizza found with this id!' });
